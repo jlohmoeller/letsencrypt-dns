@@ -1,5 +1,5 @@
-FROM alpine:3.5
-MAINTAINER johannes@lmlr.de
+FROM alpine:latest
+
 
 RUN apk update && apk upgrade && apk add bash certbot && rm -rf /var/cache/apk/*
 
