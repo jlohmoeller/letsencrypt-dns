@@ -1,6 +1,6 @@
 #!/bin/bash
 
-certbot renew --agree-tos --quiet
+certbot renew --agree-tos --quiet --preferred-challenges http
 
 mkdir -p /certs/combined
 
