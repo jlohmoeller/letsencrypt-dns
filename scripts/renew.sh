@@ -1,6 +1,13 @@
 #!/bin/bash
 
-certbot renew --agree-tos --quiet --preferred-challenges http
+certbot renew \
+  --agree-tos \
+  --quiet \
+  --preferred-challenges=dns \
+  --manual \
+  --manual-public-ip-logging-ok \
+  --manual-auth-hook "/dns_helper.sh auth" \
+  --manual-cleanup-hook "/dns_helper.sh cleanup"
 
 mkdir -p /certs/combined
 
