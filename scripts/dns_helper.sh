@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NSUPDATE_KEY="/etc/letsencrypt/dns.key"
-NSUPDATE_SERVER="ns2.lmlr.de"
+NSUPDATE_SERVER="dns-master.lmlr.de"
 
 # Add TXT validation
 dns_add() {
@@ -10,6 +10,7 @@ server ${NSUPDATE_SERVER}
 update add _acme-challenge.${CERTBOT_DOMAIN}. 60 IN TXT "$CERTBOT_VALIDATION"
 send
 EOF
+sleep 3
 }
 
 # Remove TXT validation
