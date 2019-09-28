@@ -2,9 +2,9 @@
 set -eo pipefail
 
 if [ "$1" = "" ]; then
-  exec /renew.sh
+  exec /scripts/renew.sh
 elif [ "$1" = "cert" ]; then
-  exec /certonly.sh "$2"
+  exec /scripts/certonly.sh "$2"
 fi
 
 exec "$@"

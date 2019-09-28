@@ -1,0 +1,11 @@
+version: "3"
+services:
+  letsencrypt:
+    image: jlohmoeller/letsencrypt-dns
+    container_name: letsencrypt
+    restart: always
+    env_file:
+      - ./settings.env
+    volumes:
+      - ./data:/etc/letsencrypt
+      - ./certs:/certs

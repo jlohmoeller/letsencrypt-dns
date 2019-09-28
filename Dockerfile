@@ -1,12 +1,11 @@
 FROM alpine:latest
 
-RUN apk update && apk upgrade && apk add bash certbot bind-tools && rm -rf /var/cache/apk/*
+RUN apk add --no-cache bash certbot bind-tools
 
-COPY scripts/ /
+COPY scripts/ /scripts/
 RUN crontab -l | { cat; echo "20    03       *       *       *       /renew.sh"; } | crontab -
-RUN ln -s /certonly.sh /usr/bin/cert && ln -s /renew.sh /usr/bin/renew
+RUN ln -s /scripts/certonly.sh /usr/bin/cert && ln -s /scripts/renew.sh /usr/bin/renew
 VOLUME /etc/letsencrypt /certs
-ENV TERM=xterm
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/scripts/entrypoint.sh"]
 CMD ["crond", "-f", "-d", "8"]
