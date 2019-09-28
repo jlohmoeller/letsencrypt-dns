@@ -1,4 +1,4 @@
-[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/jlohmoeller/letsencrypt-dns) 
+[ ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/jlohmoeller/letsencrypt-dns) 
 ![Docker Automated build](https://img.shields.io/docker/cloud/automated/jlohmoeller/letsencrypt-dns)
 ![Docker Pulls](https://img.shields.io/docker/pulls/jlohmoeller/letsencrypt-dns)](https://hub.docker.com/r/jlohmoeller/letsencrypt-dns)
 
