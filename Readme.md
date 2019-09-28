@@ -51,4 +51,5 @@ NSUPDATE_TOKEN=certbot:courgeneratednsupdatekey
 ```
 
 Use the provided [docker-compose.yaml](docker-compose.yaml) file to start the service. Once it is up and running,
-use `docker exec -it letsencrypt cert yourdomain.com` to request a certificate for `yourdomain.com`.
+use `docker exec -it letsencrypt cert yourdomain.com` to request a certificate for `yourdomain.com`. 
+When requesting your first certificate, you will be asked to agree to the Letsencrypt ToS and for your email.

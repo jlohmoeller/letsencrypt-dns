@@ -1,18 +1,18 @@
 #!/bin/bash
 
-if [ -z "$NSUPDATE_TOKEN"]
+if [ -z ${NSUPDATE_TOKEN+x} ] ;
 then
   echo "No credentials for nsupdate specified! Specify credentials for nsupdate in NSUPDATE_TOKEN"
   exit 1
 fi
 
-if [ -z "$NSUPDATE_SERVER"]
+if [ -z ${NSUPDATE_SERVER+x} ] ;
 then
   echo "No server for nsupdate specified! Use NSUPDATE_SERVER to specify the address of the master nameserver"
   exit 2
 fi
 
-if [ -z "$PROPAGATION_TIME"]
+if [ -z ${PROPAGATION_TIME+x} ] ;
 then
   PROPAGATION_TIME=10
 fi
@@ -20,7 +20,7 @@ fi
 
 # Add TXT validation
 dns_add() {
-  nsupdate -y "${$NSUPDATE_TOKEN}" <<EOF
+  nsupdate -y "${NSUPDATE_TOKEN}" <<EOF
 server ${NSUPDATE_SERVER}
 update add _acme-challenge.${CERTBOT_DOMAIN}. 60 IN TXT "$CERTBOT_VALIDATION"
 send
@@ -31,7 +31,7 @@ sleep $PROPAGATION_TIME
 
 # Remove TXT validation
 dns_rm() {
-  nsupdate -y "${$NSUPDATE_TOKEN}" <<EOF
+  nsupdate -y "${NSUPDATE_TOKEN}" <<EOF
 server ${NSUPDATE_SERVER}
 update delete _acme-challenge.${CERTBOT_DOMAIN}. TXT
 send
