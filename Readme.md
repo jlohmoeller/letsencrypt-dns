@@ -1,3 +1,7 @@
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/jlohmoeller/letsencrypt-dns) 
+![Docker Automated build](https://img.shields.io/docker/cloud/automated/jlohmoeller/letsencrypt-dns)
+![Docker Pulls](https://img.shields.io/docker/pulls/jlohmoeller/letsencrypt-dns)](https://hub.docker.com/r/jlohmoeller/letsencrypt-dns)
+
 # Docker Letsencrypt with nsupdate
 
 Tiny little helper that integrates certbot with nsupdate to perform the dns-01 challenge. 
